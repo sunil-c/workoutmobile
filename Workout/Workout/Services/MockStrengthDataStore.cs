@@ -1,0 +1,73 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Workout.Models;
+
+namespace Workout.Services
+{
+    public class MockStrengthDataStore : IStrengthDataStore<StrengthExercise>
+    {
+        List<StrengthExercise> exercises;
+
+        public MockStrengthDataStore()
+        {
+            exercises = new List<StrengthExercise>();
+
+            //to-do get from database
+            var mockExercises = new List<StrengthExercise>
+            {
+                new StrengthExercise { Id = Guid.NewGuid().ToString(), Exercise = "Squats", Weight=185, Reps=6, Sets=3, ExerciseDate = DateTime.Today},
+                new StrengthExercise { Id = Guid.NewGuid().ToString(), Exercise = "Leg Press", Weight=360, Reps=6, Sets=3, ExerciseDate = DateTime.Today},
+                new StrengthExercise { Id = Guid.NewGuid().ToString(), Exercise = "Romanian Deadlift", Weight=185, Reps=6, Sets=3, ExerciseDate = DateTime.Today},
+                new StrengthExercise { Id = Guid.NewGuid().ToString(), Exercise = "Seated Calf", Weight=110, Reps=8, Sets=5, ExerciseDate = DateTime.Today},
+                new StrengthExercise { Id = Guid.NewGuid().ToString(), Exercise = "Barbell Curls", Weight=70, Reps=10, Sets=3, ExerciseDate = DateTime.Today.AddDays(1)},
+                new StrengthExercise { Id = Guid.NewGuid().ToString(), Exercise = "Dumbel Curls", Weight=35, Reps=8, Sets=3, ExerciseDate = DateTime.Today.AddDays(1)},
+
+            };
+
+            foreach (var exercise in mockExercises)
+            {
+                exercises.Add(exercise);
+            }
+        }
+
+        public async Task<bool> AddExerciseAsync(StrengthExercise exercise)
+        {
+            exercises.Add(exercise);
+
+            return await Task.FromResult(true);
+        }
+
+        public async Task<bool> UpdateExerciseAsync(StrengthExercise exercise)
+        {
+            //the updates are done through binding so no code needed
+
+            //var oldItem = exercises.Where((StrengthExercise arg) => arg.Id == exercise.Id).FirstOrDefault();
+            var oldItem = exercises.FirstOrDefault((StrengthExercise arg) => arg.Id == exercise.Id);
+            exercises.Remove(oldItem);
+            exercises.Add(exercise);
+
+            return await Task.FromResult(true);
+        }
+
+        public async Task<bool> DeleteExerciseAsync(string id)
+        {
+            //var oldItem = exercises.Where((StrengthExercise arg) => arg.Id == id).FirstOrDefault();
+            var oldItem = exercises.FirstOrDefault((StrengthExercise arg) => arg.Id == id);
+            exercises.Remove(oldItem);
+
+            return await Task.FromResult(true);
+        }
+
+        public async Task<StrengthExercise> GetExerciseAsync(string id)
+        {
+            return await Task.FromResult(exercises.FirstOrDefault(s => s.Id == id));
+        }
+
+        public async Task<IEnumerable<StrengthExercise>> GetExercisesAsync(DateTime dt, bool forceRefresh = false)
+        {
+            return await Task.FromResult(exercises.FindAll(i => i.ExerciseDate == dt));
+        }
+    }
+}
