@@ -14,13 +14,17 @@ namespace Workout.ViewModels
         public StrengthExercise Exercise { get; set; }
         public List<string> ListOfExercises { get; set; }
         
-        public StrengthExerciseDetailViewModel(StrengthExercise exercise = null)
+        public StrengthExerciseDetailViewModel(String id = "")
         {
-            Title = exercise?.Exercise;
-            //init props
             this.ListOfExercises = ExerciseList.GetExerciseList().Values.ToList();
-            //init the data
-            this.Exercise = exercise;
+            _ = SetUpExercise(id);
+        }
+
+        private async Task SetUpExercise(string id)
+        { 
+            //init props
+            Exercise = (await this.DataStore.GetExerciseAsync(id)).Clone() as StrengthExercise;
+            Title = Exercise?.Exercise;
         }
 
     }

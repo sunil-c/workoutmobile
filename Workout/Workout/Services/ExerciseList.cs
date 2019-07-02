@@ -5,57 +5,8 @@ using System.Text;
 
 namespace Workout.Services
 {
-    //add new exercises here
-    //enum ListofExercises
-    //{
-    //    Squats = 1,
-    //    LegPress = 2,
-    //    RomanianDeadlift = 3,
-    //    LegCurl = 4,
-    //    SeatedCalf = 5,
-    //    StandingCalf = 6,
-    //    LegPressCalf = 7,
-
-    //    BarbellBenchPress = 20,
-    //    DumbellBenchPress = 21,
-    //    DumbellFly = 22,
-    //    CableFly = 23,
-
-    //    BarbellCurl = 30,
-    //    DumbellCurl = 31,
-    //    HammerCurl = 32,
-
-    //    TricepPushdown = 40,
-    //    TricepPulldown = 41,
-    //    OverheadTricep = 42,
-    //    CloseGripBench = 43,
-
-    //    Deadlifts = 50,
-    //    PullUps = 51,
-    //    Pulldowns = 52,
-    //    SeatedRow = 53,
-    //    BentBarbellRow = 54,
-
-    //    BarbellMilitaryPress = 60,
-    //    DumbellMilitaryPress = 61,
-    //    BentOverLateralRaise = 62,
-    //    SideLateralRaise = 63,
-    //    FrontRaise = 64
-    //}
-
     public class ExerciseList
     {
-        //returnt he ListOfExercises enum as a dictionary
-        //private static Dictionary<int, string> GetExerciseList_z()
-        //{
-        //    Dictionary<int, string> exercises = new Dictionary<int, string>();
-        //    var values = Enum.GetValues(typeof(ListofExercises)).Cast<int>();
-        //    foreach (int item in values){
-        //        exercises.Add(item, Enum.GetName(typeof(ListofExercises), item));
-        //    }
-        //    return exercises;
-        //}
-
         //return the exercises available as a dictionary
         //to-do move to database
         public static Dictionary<int, string> GetExerciseList()

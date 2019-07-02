@@ -33,9 +33,11 @@ namespace Workout.Views
             //have to always check for null because setting the selecteditem to null fires this again
             if (((ListView) sender).SelectedItem == null) 
                 return;
-            StrengthExercise exercise = (args.SelectedItem as StrengthExercise).Clone() as StrengthExercise;
-
-            await Navigation.PushModalAsync(new NavigationPage(new StrengthExerciseDetailPage(new StrengthExerciseDetailViewModel(exercise))));
+            //get the id of the selected exercise
+            string id = (args.SelectedItem as StrengthExercise).Id;
+            //pass the id to the detail viewmodel
+            await Navigation.PushModalAsync(
+                new NavigationPage(new StrengthExerciseDetailPage(new StrengthExerciseDetailViewModel(id))));
             // Manually deselect item in UI
             ((ListView)sender).SelectedItem = null;
         }

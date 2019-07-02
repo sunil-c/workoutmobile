@@ -10,9 +10,11 @@
         <ToolbarItem Text="Delete" Clicked="Delete_Clicked" />
     </ContentPage.ToolbarItems>
 
-
+<ScrollView Padding="0" Margin="0">
     <Grid Padding="10" >
         <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="40" />
             <RowDefinition Height="20" />
             <RowDefinition Height="40" />
             <RowDefinition Height="20" />
@@ -51,8 +53,10 @@
             </Editor.Behaviors>
         </Editor>
 
+        <Label Text="Notes" FontSize="11" Grid.Row="8" Grid.Column="0"/>
+        <Editor Text="{Binding Exercise.Note}" FontSize="11" Margin="0" Grid.Row="9" Grid.Column="0"  Keyboard="Default" />
     </Grid>
-
+</ScrollView>
 
 
 

@@ -10,6 +10,7 @@ namespace Workout.Models
         public int Reps { get; set; }
         public int Sets { get; set; }
         public DateTime ExerciseDate { get; set; }
+        public string Note { get; set; }
 
         //object copy routine
         public object Clone()
@@ -17,7 +18,8 @@ namespace Workout.Models
             return new StrengthExercise
             {
                 Exercise = this.Exercise, ExerciseDate = this.ExerciseDate,
-                Id = this.Id, Reps = this.Reps, Sets = this.Sets, Weight = this.Weight
+                Id = this.Id, Reps = this.Reps, Sets = this.Sets, Weight = this.Weight,
+                Note = this.Note
             };
         }
 

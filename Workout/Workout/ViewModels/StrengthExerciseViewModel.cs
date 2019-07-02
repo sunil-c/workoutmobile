@@ -2,20 +2,15 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
-
 using Workout.Models;
-using Workout.Services;
 using Workout.Views;
 using System.Linq;
-using System.Collections.Generic;
 
 namespace Workout.ViewModels
 {
     public class StrengthExerciseViewModel : BaseStrengthExerciseViewModel
     {
-        //public ObservableCollection<StrengthExercise> Exercises { get; set; }
         public ObservableCollection<StrengthExercise> Exercises { get; set; }
         public Command LoadExercisesCommand { get; set; }
         public DateTime SelectedDate { get; set; }
