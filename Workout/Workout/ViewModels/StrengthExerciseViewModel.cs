@@ -17,9 +17,7 @@ namespace Workout.ViewModels
     {
         //public ObservableCollection<StrengthExercise> Exercises { get; set; }
         public ObservableCollection<StrengthExercise> Exercises { get; set; }
-        public List<string> ListOfExercises { get; set; }
         public Command LoadExercisesCommand { get; set; }
-        public Command SelectExerciseCommand { get; set; }
         public DateTime SelectedDate { get; set; }
 
         //constructor
@@ -30,8 +28,7 @@ namespace Workout.ViewModels
             Exercises = new ObservableCollection<StrengthExercise>();
             //set commands
             LoadExercisesCommand = new Command(async () => await ExecuteLoadItemsCommand());
-            //init props
-            ListOfExercises = ExerciseList.GetExerciseList().Values.ToList();
+
             //default to today
             SelectedDate = DateTime.Today;
 
@@ -70,6 +67,7 @@ namespace Workout.ViewModels
             });
 
         }
+
 
         //what to do to load items
         private async Task ExecuteLoadItemsCommand()

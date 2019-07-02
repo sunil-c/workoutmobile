@@ -11,6 +11,7 @@ namespace Workout.Models
         public int Sets { get; set; }
         public DateTime ExerciseDate { get; set; }
 
+        //object copy routine
         public object Clone()
         {
             return new StrengthExercise

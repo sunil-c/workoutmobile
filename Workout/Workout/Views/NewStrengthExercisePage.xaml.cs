@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using Workout.Services;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
 using Workout.Models;
 using System.Linq;
 

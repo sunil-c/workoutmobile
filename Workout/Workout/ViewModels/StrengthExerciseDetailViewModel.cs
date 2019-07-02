@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Workout.Models;
 using Workout.Services;
 
@@ -10,6 +10,7 @@ namespace Workout.ViewModels
 {
     public class StrengthExerciseDetailViewModel: BaseStrengthExerciseViewModel
     {
+
         public StrengthExercise Exercise { get; set; }
         public List<string> ListOfExercises { get; set; }
         
@@ -21,5 +22,6 @@ namespace Workout.ViewModels
             //init the data
             this.Exercise = exercise;
         }
+
     }
 }

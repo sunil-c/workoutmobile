@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Workout.Views.NewStrengthExercisePage"
+             xmlns:y="clr-namespace:Workout.Behaviors"
              Title="New Exercise">
     
     <ContentPage.ToolbarItems>
@@ -16,11 +17,23 @@
             <Label Text="Exercise" FontSize="11"  />
             <Picker FontSize="11" Title="Select Exercise" x:Name="exPicker" />
             <Label Text="Weight" FontSize="11" />
-            <Editor Text="{Binding Exercise.Weight}" FontSize="11" Margin="0" />
+            <Editor Text="{Binding Exercise.Weight}" FontSize="11" Margin="0" Keyboard="Numeric">
+                <Editor.Behaviors>
+                    <y:NumericValidationBehavior />
+                </Editor.Behaviors>
+            </Editor>
             <Label Text="Sets" FontSize="11" />
-            <Editor Text="{Binding Exercise.Sets}" FontSize="11" Margin="0" />
+            <Editor Text="{Binding Exercise.Sets}" FontSize="11" Margin="0" Keyboard="Numeric">
+                <Editor.Behaviors>
+                    <y:NumericValidationBehavior />
+                </Editor.Behaviors>
+            </Editor>
             <Label Text="Reps" FontSize="11" />
-            <Editor Text="{Binding Exercise.Reps}" FontSize="11" Margin="0" />
+            <Editor Text="{Binding Exercise.Reps}" FontSize="11" Margin="0" Keyboard="Numeric">
+                <Editor.Behaviors>
+                    <y:NumericValidationBehavior />
+                </Editor.Behaviors>
+            </Editor>
         </StackLayout>
     </ContentPage.Content>
     

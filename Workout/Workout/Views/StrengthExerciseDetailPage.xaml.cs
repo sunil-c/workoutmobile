@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Collections.Generic;
-
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -34,7 +34,8 @@ namespace Workout.Views
             if ((sender as Picker).SelectedItem == null)
                 return;
             string selectedOption = (sender as Picker).SelectedItem.ToString();
-            //only set if changed
+
+            //only set new exercise name if changed
             if (viewModel.Exercise.Exercise != selectedOption)
             {
                 viewModel.Exercise.Exercise = selectedOption;
