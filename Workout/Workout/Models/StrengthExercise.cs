@@ -1,9 +1,12 @@
 ﻿using System;
+using SQLite;
 
 namespace Workout.Models
 {
+    [Table("StrengthExercise")]
     public class StrengthExercise: ICloneable
     {
+        [PrimaryKey]
         public string Id { get; set; }
         public string Exercise {get; set;}
         public decimal Weight { get; set; }

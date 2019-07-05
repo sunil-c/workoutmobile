@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Workout.Services;
@@ -10,7 +11,20 @@ namespace Workout
     {
         //TODO: Replace with *.azurewebsites.net url after deploying backend to Azure
         public static string AzureBackendUrl = "http://localhost:5000";
-        public static bool UseMockDataStore = true;
+        public static bool UseMockDataStore = false;
+        private static ExerciseDatabase database;
+        public static ExerciseDatabase Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new ExerciseDatabase(
+                        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "ExerciseSQLite.db3"));
+                }
+                return database;
+            }
+        }
 
         public App()
         {
@@ -24,8 +38,7 @@ namespace Workout
             else
             {
                 //needs to be changed to azure data store once code is written
-                DependencyService.Register<MockStrengthDataStore>();
-                //DependencyService.Register<AzureDataStore>();
+                DependencyService.Register<ExerciseDatabase>();
             }
             MainPage = new MainPage();
         }
