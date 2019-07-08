@@ -4,15 +4,13 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Workout.Models;
 using Workout.Services;
+using Xamarin.Forms;
 
 namespace Workout.ViewModels
 {
     public class BaseStrengthExerciseViewModel : INotifyPropertyChanged
     {
-        public IStrengthDataStore<StrengthExercise> DataStore => App.Database;
-            //DependencyService.Get<IStrengthDataStore<StrengthExercise>>() ??
-            //DependencyService.Get<IStrengthDataStore<MockStrengthDataStore>>();
-            ////DependencyService.Get<IStrengthDataStore<StrengthExercise>>() ?? new MockStrengthDataStore();
+        public IStrengthDataStore<StrengthExercise> DataStore = App.Database;
 
         bool isBusy = false;
         public bool IsBusy

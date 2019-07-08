@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Workout.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Workout.Services;
@@ -11,18 +12,30 @@ namespace Workout
     {
         //TODO: Replace with *.azurewebsites.net url after deploying backend to Azure
         public static string AzureBackendUrl = "http://localhost:5000";
-        public static bool UseMockDataStore = false;
-        private static ExerciseDatabase database;
-        public static ExerciseDatabase Database
+        public static bool UseMockDataStore = true;
+
+        private static string databaseName = "ExerciseSQLite.db3";
+        //create a read only global database variable
+        private static IStrengthDataStore<StrengthExercise> _database;
+        public static IStrengthDataStore<StrengthExercise> Database
         {
             get
             {
-                if (database == null)
+                if (_database == null)
                 {
-                    database = new ExerciseDatabase(
-                        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "ExerciseSQLite.db3"));
+                    //use the mock database when developing
+                    if (UseMockDataStore)
+                    {
+                        _database = new MockStrengthDataStore();
+                    }
+                    else
+                    {
+                        _database = new ExerciseDatabase(
+                            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), databaseName));
+                    }
+
                 }
-                return database;
+                return _database;
             }
         }
 
@@ -30,16 +43,6 @@ namespace Workout
         {
             InitializeComponent();
 
-            if (UseMockDataStore)
-            {
-                DependencyService.Register<MockStrengthDataStore>();
-
-            }
-            else
-            {
-                //needs to be changed to azure data store once code is written
-                DependencyService.Register<ExerciseDatabase>();
-            }
             MainPage = new MainPage();
         }
 

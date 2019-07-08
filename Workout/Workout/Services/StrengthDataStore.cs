@@ -16,14 +16,6 @@ namespace Workout.Services
         {
             db1 = new SQLiteConnection(dbPath);
             db1.CreateTable<StrengthExercise>();
-
-            //AddExerciseAsync(
-            //    new StrengthExercise()
-            //    {
-            //        Exercise = "Romanian Deadlift", Id = "1234567890",
-            //        ExerciseDate = DateTime.Now, Reps = 0,
-            //        Sets = 0, Weight = 0, Note = string.Empty
-            //    });
         }
 
         public async Task<bool> AddExerciseAsync(StrengthExercise item)
