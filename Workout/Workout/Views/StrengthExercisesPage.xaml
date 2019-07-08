@@ -37,31 +37,31 @@
                     <Label Text="Exercise" 
                                     LineBreakMode="NoWrap" 
                                     Style="{DynamicResource ListItemTextStyle}" 
-                                    FontSize="11" 
-                                    Grid.Row="0" Grid.Column="0"/>
+                                    FontSize="11" FontAttributes="Bold"
+                                    Grid.Row="0" Grid.Column="0" />
                     <Label Text="Weight" 
                                     LineBreakMode="NoWrap"
                                     Style="{DynamicResource ListItemDetailTextStyle}"
-                                    FontSize="11" 
+                                    FontSize="11" FontAttributes="Bold"
                                    Grid.Row="0" Grid.Column="1" />
                     <Label Text="Sets" 
                                     LineBreakMode="NoWrap"
                                     Style="{DynamicResource ListItemDetailTextStyle}"
-                                    FontSize="11" 
+                                    FontSize="11" FontAttributes="Bold"
                                     Grid.Row="0" Grid.Column="2"/>
                     <Label Text="Reps" 
                                     LineBreakMode="NoWrap"
                                     Style="{DynamicResource ListItemDetailTextStyle}"
-                                    FontSize="11" 
+                                    FontSize="11"  FontAttributes="Bold"
                                     Grid.Row="0" Grid.Column="3"/>
                 </Grid>
             </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Grid >
+                        <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="100" />

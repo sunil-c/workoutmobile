@@ -28,32 +28,32 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Label Text="Exercise" FontSize="11" Grid.Row="0" Grid.Column="0" />
+        <Label Text="Exercise" FontSize="11" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" />
         <Picker FontSize="11" Title="Change Exercise To" x:Name="exPicker" Grid.Row="1" Grid.Column="0" 
                 ItemsSource="{Binding ListOfExercises}" SelectedIndexChanged="PickerSelectedIndexChanged" />
         
-        <Label Text="Weight" FontSize="11" Grid.Row="2" Grid.Column="0" />
+        <Label Text="Weight" FontSize="11" FontAttributes="Bold" Grid.Row="2" Grid.Column="0" />
         <Editor Text="{Binding Exercise.Weight}" FontSize="11" Margin="0"  Grid.Row="3" Grid.Column="0" Keyboard="Numeric">
             <Editor.Behaviors>
                 <y:NumericValidationBehavior />
             </Editor.Behaviors>
         </Editor>
 
-        <Label Text="Sets" FontSize="11" Grid.Row="4" Grid.Column="0"/>
+        <Label Text="Sets" FontSize="11" FontAttributes="Bold" Grid.Row="4" Grid.Column="0"/>
         <Editor Text="{Binding Exercise.Sets}" FontSize="11" Margin="0" Grid.Row="5" Grid.Column="0" Keyboard="Numeric">
             <Editor.Behaviors>
                 <y:NumericValidationBehavior />
             </Editor.Behaviors>
         </Editor>
 
-        <Label Text="Reps" FontSize="11" Grid.Row="6" Grid.Column="0"/>
+        <Label Text="Reps" FontSize="11" FontAttributes="Bold" Grid.Row="6" Grid.Column="0"/>
         <Editor Text="{Binding Exercise.Reps}" FontSize="11" Margin="0" Grid.Row="7" Grid.Column="0"  Keyboard="Numeric">
             <Editor.Behaviors>
                 <y:NumericValidationBehavior />
             </Editor.Behaviors>
         </Editor>
 
-        <Label Text="Notes" FontSize="11" Grid.Row="8" Grid.Column="0"/>
+        <Label Text="Notes" FontSize="11" FontAttributes="Bold" Grid.Row="8" Grid.Column="0"/>
         <Editor Text="{Binding Exercise.Note}" FontSize="11" Margin="0" Grid.Row="9" Grid.Column="0"  Keyboard="Default" />
     </Grid>
 </ScrollView>

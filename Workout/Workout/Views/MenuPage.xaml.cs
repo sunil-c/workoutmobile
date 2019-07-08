@@ -23,6 +23,7 @@ namespace Workout.Views
             {
                 //new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
                 new HomeMenuItem {Id = MenuItemType.Exercises, Title="Exercises" },
+                new HomeMenuItem {Id = MenuItemType.Stopwatch, Title="Stop Watch" },
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" }
             };
 

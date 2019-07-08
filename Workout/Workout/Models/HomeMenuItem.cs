@@ -8,6 +8,7 @@ namespace Workout.Models
     {
         //Browse,
         Exercises,
+        Stopwatch,
         About
     }
     public class HomeMenuItem

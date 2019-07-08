@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Workout.Views.StopWatchPage"
+             Title="Stop Watch">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="startButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#8efd92"/>
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="BorderRadius" Value="0"/>
+                <Setter Property="FontSize" Value="12" />
+            </Style>
+            <Style x:Key="stopButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#ff6b6b"/>
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="BorderRadius" Value="0"/>
+                <Setter Property="FontSize" Value="12" />
+            </Style>
+            <Style x:Key="resetButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#bbd3f7"/>
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="BorderRadius" Value="0"/>
+                <Setter Property="FontSize" Value="12" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid ColumnSpacing="3" Padding="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0" Grid.Column="0" Text="Start" x:Name="startBtn" Style="{StaticResource startButton}"></Button>
+                <Button Grid.Row="0" Grid.Column="1" Text="Stop" x:Name="stopBtn" Style="{StaticResource stopButton}"></Button>
+                <Button Grid.Row="0" Grid.Column="2" Text="Reset" x:Name="resetBtn" Style="{StaticResource resetButton}"></Button>
+            </Grid>
+            <Label Text="Display the elapsed time here"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

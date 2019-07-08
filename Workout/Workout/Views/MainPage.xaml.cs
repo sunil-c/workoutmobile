@@ -28,11 +28,11 @@ namespace Workout.Views
             {
                 switch (id)
                 {
-                    //case (int)MenuItemType.Browse:
-                    //    MenuPages.Add(id, new NavigationPage(new ItemsPage()));
-                    //    break;
                     case (int)MenuItemType.Exercises:
                         MenuPages.Add(id, new NavigationPage(new StrengthExercisesPage()));
+                        break;
+                    case (int)MenuItemType.Stopwatch:
+                        MenuPages.Add(id, new NavigationPage(new StopWatchPage()));
                         break;
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
