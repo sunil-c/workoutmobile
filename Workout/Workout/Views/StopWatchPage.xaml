@@ -36,13 +36,34 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Button Grid.Row="0" Grid.Column="0" Text="Start" x:Name="startBtn" Style="{StaticResource startButton}"></Button>
-                <Button Grid.Row="0" Grid.Column="1" Text="Stop" x:Name="stopBtn" Style="{StaticResource stopButton}"></Button>
-                <Button Grid.Row="0" Grid.Column="2" Text="Reset" x:Name="resetBtn" Style="{StaticResource resetButton}"></Button>
+                <Button Grid.Row="0" Grid.Column="0" Text="Start" x:Name="startBtn" Style="{StaticResource startButton}" Clicked="OnStartButtonClicked"></Button>
+                <Button Grid.Row="0" Grid.Column="1" Text="Stop" x:Name="stopBtn" Style="{StaticResource stopButton}" Clicked="OnStopButtonClicked"></Button>
+                <Button Grid.Row="0" Grid.Column="2" Text="Reset" x:Name="resetBtn" Style="{StaticResource resetButton}" Clicked="OnResetButtonClicked"></Button>
             </Grid>
-            <Label Text="Display the elapsed time here"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            
+            <Grid ColumnSpacing="3" Padding="10" Margin="0,35,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <!--<ColumnDefinition Width="*" />-->
+                </Grid.ColumnDefinitions>
+                <Label x:Name="displayLblHrs" Text="00:" FontSize="35"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0" />
+                <Label x:Name="displayLblMins" Text="00:" FontSize="35"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="1"/>
+                <Label x:Name="displayLblSecs" Text="00" FontSize="35"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="2" />
+                <!--<Label x:Name="displayLblMils" Text="00" FontSize="Large"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="3" />-->
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
