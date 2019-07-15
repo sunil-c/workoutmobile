@@ -15,6 +15,7 @@ namespace Workout.Views
     {
         public StrengthExercise Exercise { get; set; }
         public List<string> ListOfExercises;
+        private Dictionary<int, string> _exerciseList;
         public NewStrengthExercisePage()
         {
             InitializeComponent();
@@ -30,8 +31,11 @@ namespace Workout.Views
             };
 
             //call static function to get exercises and bind them to pick list
-            ListOfExercises = ExerciseList.GetExerciseList().Values.ToList();
+            _exerciseList = ExerciseList.GetExerciseList();
+            ListOfExercises = _exerciseList.Values.ToList();
             exPicker.ItemsSource = ListOfExercises;
+
+            cardioVals.IsVisible = false;
 
             //add a selected item change event to pick list
             exPicker.SelectedIndexChanged += (sender, args) =>
@@ -43,6 +47,22 @@ namespace Workout.Views
                 else
                 {
                     Exercise.Exercise = exPicker.Items[exPicker.SelectedIndex];
+                    int key = _exerciseList.FirstOrDefault(x => x.Value == Exercise.Exercise).Key;
+                    switch (key)
+                    {
+                        case 0:
+                            strengthVals.IsVisible = false;
+                            cardioVals.IsVisible = false;
+                            break;
+                        case 90:
+                            strengthVals.IsVisible = false;
+                            cardioVals.IsVisible = true;                            
+                            break;
+                        default:
+                            strengthVals.IsVisible = true;
+                            cardioVals.IsVisible = false;
+                            break;
+                    }
                 }
             };
 

@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Workout.Models
 {
+    //* modify the following: MenuItemType enum , menupage.xaml.cs, mainpage.xaml.cs
     public enum MenuItemType
     {
-        //Browse,
         Exercises,
         Stopwatch,
         About

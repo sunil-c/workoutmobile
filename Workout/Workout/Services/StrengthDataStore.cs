@@ -40,7 +40,6 @@ namespace Workout.Services
         {
             StrengthExercise result = db1.Table<StrengthExercise>().FirstOrDefault(i => i.Id == id);
             return await Task.FromResult(result);
-            //return await database.GetAsync<StrengthExercise>(i => i.Id == id);
         }
 
         public async Task<IEnumerable<StrengthExercise>> GetExercisesAsync(DateTime dt, bool forceRefresh = false)

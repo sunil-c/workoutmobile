@@ -20,10 +20,9 @@ namespace Workout.Behaviors
 
         void OnEntryTextChanged(object sender, TextChangedEventArgs args)
         {
-            int result;
+            decimal result; 
 
-            bool isValid = int.TryParse(args.NewTextValue, out result);
-
+            bool isValid = Decimal.TryParse(args.NewTextValue, out result);
             ((Editor)sender).TextColor = isValid ? Color.Default : Color.Red;
         }
     }

@@ -17,12 +17,12 @@ namespace Workout.Services
             //to-do get from database
             var mockExercises = new List<StrengthExercise>
             {
-                new StrengthExercise { Id = Guid.NewGuid().ToString(), Exercise = "Squats", Weight=185, Reps=6, Sets=3, ExerciseDate = DateTime.Today, Note = string.Empty, Period = new TimeSpan(0, 0,0,0)},
-                new StrengthExercise { Id = Guid.NewGuid().ToString(), Exercise = "Leg Press", Weight=360, Reps=6, Sets=3, ExerciseDate = DateTime.Today, Note = string.Empty, Period = new TimeSpan(0, 0,0,0)},
-                new StrengthExercise { Id = Guid.NewGuid().ToString(), Exercise = "Romanian Deadlift", Weight=185, Reps=6, Sets=3, ExerciseDate = DateTime.Today, Note = string.Empty, Period = new TimeSpan(0, 0,0,0)},
-                new StrengthExercise { Id = Guid.NewGuid().ToString(), Exercise = "Seated Calf", Weight=110, Reps=8, Sets=5, ExerciseDate = DateTime.Today, Note = string.Empty, Period = new TimeSpan(0, 0,0,0)},
-                new StrengthExercise { Id = Guid.NewGuid().ToString(), Exercise = "Barbell Curls", Weight=70, Reps=10, Sets=3, ExerciseDate = DateTime.Today.AddDays(1), Note = string.Empty, Period = new TimeSpan(0, 0,0,0)},
-                new StrengthExercise { Id = Guid.NewGuid().ToString(), Exercise = "Dumbell Curls", Weight=35, Reps=8, Sets=3, ExerciseDate = DateTime.Today.AddDays(1), Note = string.Empty, Period = new TimeSpan(0, 0,0,0)},
+                new StrengthExercise { Id = Guid.NewGuid().ToString(), Exercise = "Squats", Weight=185, Reps=6, Sets=3, ExerciseDate = DateTime.Today, Note = string.Empty, Hours=0, Mins=0, Secs=0, Distance=0},
+                new StrengthExercise { Id = Guid.NewGuid().ToString(), Exercise = "Leg Press", Weight=360, Reps=6, Sets=3, ExerciseDate = DateTime.Today, Note = string.Empty, Hours=0, Mins=0, Secs=0, Distance=0},
+                new StrengthExercise { Id = Guid.NewGuid().ToString(), Exercise = "Romanian Deadlift", Weight=185, Reps=6, Sets=3, ExerciseDate = DateTime.Today, Note = string.Empty, Hours=0, Mins=0, Secs=0, Distance=0},
+                new StrengthExercise { Id = Guid.NewGuid().ToString(), Exercise = "Seated Calf", Weight=110, Reps=8, Sets=5, ExerciseDate = DateTime.Today, Note = string.Empty, Hours=0, Mins=0, Secs=0, Distance=0},
+                new StrengthExercise { Id = Guid.NewGuid().ToString(), Exercise = "Barbell Curls", Weight=70, Reps=10, Sets=3, ExerciseDate = DateTime.Today.AddDays(1), Note = string.Empty, Hours=0, Mins=0, Secs=0, Distance=0},
+                new StrengthExercise { Id = Guid.NewGuid().ToString(), Exercise = "Dumbell Curls", Weight=35, Reps=8, Sets=3, ExerciseDate = DateTime.Today.AddDays(1), Note = string.Empty, Hours=0, Mins=0, Secs=0, Distance=0},
 
             };
 

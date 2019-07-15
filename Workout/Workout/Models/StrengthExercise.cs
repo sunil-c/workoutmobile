@@ -16,8 +16,11 @@ namespace Workout.Models
         public int Reps { get; set; }
         public int Sets { get; set; }
 
-        //used to store elapsed time for cardio and hiit
-        public TimeSpan Period { get; set; }
+        //used to store elapsed time for cardio
+        public int Hours { get; set; }
+        public int Mins { get; set; }
+        public int Secs { get; set; }
+        public decimal Distance { get; set; }
 
         //store notes with workout
         public string Note { get; set; }
@@ -29,7 +32,8 @@ namespace Workout.Models
             {
                 Exercise = this.Exercise, ExerciseDate = this.ExerciseDate,
                 Id = this.Id, Reps = this.Reps, Sets = this.Sets, Weight = this.Weight,
-                Note = this.Note, Period = this.Period
+                Note = this.Note, Hours = this.Hours, Mins = this.Mins, Secs = this.Secs,
+                Distance = this.Distance
             };
         }
 

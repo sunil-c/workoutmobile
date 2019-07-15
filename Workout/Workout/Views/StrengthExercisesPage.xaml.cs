@@ -11,6 +11,7 @@ using Xamarin.Forms.Xaml;
 using Workout.Models;
 using Workout.Views;
 using Workout.ViewModels;
+using Workout.Services;
 
 namespace Workout.Views
 {
@@ -20,11 +21,11 @@ namespace Workout.Views
     public partial class StrengthExercisesPage : ContentPage
     {
         StrengthExerciseViewModel viewModel;
-
+        Dictionary<int, string> _exerciseList;
         public StrengthExercisesPage()
         {
             InitializeComponent();
-
+            _exerciseList = ExerciseList.GetExerciseList();
             BindingContext = viewModel = new StrengthExerciseViewModel();
         }
 
@@ -41,6 +42,7 @@ namespace Workout.Views
             // Manually deselect item in UI
             ((ListView)sender).SelectedItem = null;
         }
+
 
         void OnDateSelected(object sender, DateChangedEventArgs args)
         {

@@ -11,51 +11,70 @@
     </ContentPage.ToolbarItems>
 
 <ScrollView Padding="0" Margin="0">
-    <Grid Padding="10" >
-        <Grid.RowDefinitions>
-            <RowDefinition Height="20" />
-            <RowDefinition Height="40" />
-            <RowDefinition Height="20" />
-            <RowDefinition Height="40" />
-            <RowDefinition Height="20" />
-            <RowDefinition Height="40" />
-            <RowDefinition Height="20" />
-            <RowDefinition Height="40" />
-            <RowDefinition Height="20" />
-            <RowDefinition Height="40" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
 
-        <Label Text="Exercise" FontSize="11" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" />
-        <Picker FontSize="11" Title="Change Exercise To" x:Name="exPicker" Grid.Row="1" Grid.Column="0" 
-                ItemsSource="{Binding ListOfExercises}" SelectedIndexChanged="PickerSelectedIndexChanged" />
-        
-        <Label Text="Weight" FontSize="11" FontAttributes="Bold" Grid.Row="2" Grid.Column="0" />
-        <Editor Text="{Binding Exercise.Weight}" FontSize="11" Margin="0"  Grid.Row="3" Grid.Column="0" Keyboard="Numeric">
-            <Editor.Behaviors>
-                <y:NumericValidationBehavior />
-            </Editor.Behaviors>
-        </Editor>
+        <StackLayout>
+            <StackLayout>
+                <Label Text="Exercise" FontSize="11" FontAttributes="Bold"  />
+                <Picker FontSize="11" Title="Change Exercise To" x:Name="exPicker"  
+                    ItemsSource="{Binding ListOfExercises}" SelectedIndexChanged="PickerSelectedIndexChanged" />                 
+            </StackLayout>
+            
+            <StackLayout x:Name="cardioVals" Padding="0" Margin="0">
+                <Label Text="Hours" FontSize="11" FontAttributes="Bold" />
+                <Editor Text="{Binding Exercise.Hours}" FontSize="11" Margin="0" Keyboard="Numeric">
+                    <Editor.Behaviors>
+                        <y:NumericValidationBehavior />
+                    </Editor.Behaviors>
+                </Editor>
+                <Label Text="Minutes" FontSize="11" FontAttributes="Bold" />
+                <Editor Text="{Binding Exercise.Mins}" FontSize="11" Margin="0" Keyboard="Numeric">
+                    <Editor.Behaviors>
+                        <y:NumericValidationBehavior />
+                    </Editor.Behaviors>
+                </Editor>
+                <Label Text="Seconds" FontSize="11" FontAttributes="Bold" />
+                <Editor Text="{Binding Exercise.Secs}" FontSize="11" Margin="0" Keyboard="Numeric">
+                    <Editor.Behaviors>
+                        <y:NumericValidationBehavior />
+                    </Editor.Behaviors>
+                </Editor>
+                <Label Text="Distance (miles)" FontSize="11" FontAttributes="Bold" />
+                <Editor Text="{Binding Exercise.Distance}" FontSize="11" Margin="0" Keyboard="Numeric">
+                    <Editor.Behaviors>
+                        <y:NumericValidationBehavior />
+                    </Editor.Behaviors>
+                </Editor>
+            </StackLayout>
+            
+            <StackLayout x:Name="strengthVals"  Padding="0" Margin="0">
+                <Label Text="Weight" FontSize="11" FontAttributes="Bold"/>
+                <Editor Text="{Binding Exercise.Weight}" FontSize="11" Margin="0" Keyboard="Numeric">
+                    <Editor.Behaviors>
+                        <y:NumericValidationBehavior />
+                    </Editor.Behaviors>
+                </Editor>
+                <Label Text="Sets" FontSize="11" FontAttributes="Bold"/>
+                <Editor Text="{Binding Exercise.Sets}" FontSize="11" Margin="0" Keyboard="Numeric">
+                    <Editor.Behaviors>
+                        <y:NumericValidationBehavior />
+                    </Editor.Behaviors>
+                </Editor>
+                <Label Text="Reps" FontSize="11" FontAttributes="Bold"/>
+                <Editor Text="{Binding Exercise.Reps}" FontSize="11" Margin="0" Keyboard="Numeric">
+                    <Editor.Behaviors>
+                        <y:NumericValidationBehavior />
+                    </Editor.Behaviors>
+                </Editor>
+            </StackLayout>
 
-        <Label Text="Sets" FontSize="11" FontAttributes="Bold" Grid.Row="4" Grid.Column="0"/>
-        <Editor Text="{Binding Exercise.Sets}" FontSize="11" Margin="0" Grid.Row="5" Grid.Column="0" Keyboard="Numeric">
-            <Editor.Behaviors>
-                <y:NumericValidationBehavior />
-            </Editor.Behaviors>
-        </Editor>
+            <StackLayout>
+                <Label Text="Notes" FontSize="11" FontAttributes="Bold" />
+                <Editor Text="{Binding Exercise.Note}" FontSize="11" Margin="0"  Keyboard="Default" />                
+            </StackLayout>
 
-        <Label Text="Reps" FontSize="11" FontAttributes="Bold" Grid.Row="6" Grid.Column="0"/>
-        <Editor Text="{Binding Exercise.Reps}" FontSize="11" Margin="0" Grid.Row="7" Grid.Column="0"  Keyboard="Numeric">
-            <Editor.Behaviors>
-                <y:NumericValidationBehavior />
-            </Editor.Behaviors>
-        </Editor>
+        </StackLayout>
 
-        <Label Text="Notes" FontSize="11" FontAttributes="Bold" Grid.Row="8" Grid.Column="0"/>
-        <Editor Text="{Binding Exercise.Note}" FontSize="11" Margin="0" Grid.Row="9" Grid.Column="0"  Keyboard="Default" />
-    </Grid>
+
 </ScrollView>
 
 

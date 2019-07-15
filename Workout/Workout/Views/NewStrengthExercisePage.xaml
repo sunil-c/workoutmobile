@@ -13,31 +13,63 @@
     <ContentPage.Content>
         <ScrollView Margin="0" Padding="0">
             <StackLayout Padding="10">
-                <Label Text="Date" FontSize="11" FontAttributes="Bold"  />
-                <DatePicker FontSize="11" Format="d" Date="{Binding Exercise.ExerciseDate}"></DatePicker>
-                <Label Text="Exercise" FontSize="11" FontAttributes="Bold"  />
-                <Picker FontSize="11" Title="Select Exercise" x:Name="exPicker" />
-                <Label Text="Weight" FontSize="11" FontAttributes="Bold"/>
-                <Editor Text="{Binding Exercise.Weight}" FontSize="11" Margin="0" Keyboard="Numeric">
-                    <Editor.Behaviors>
-                        <y:NumericValidationBehavior />
-                    </Editor.Behaviors>
-                </Editor>
-                <Label Text="Sets" FontSize="11" FontAttributes="Bold"/>
-                <Editor Text="{Binding Exercise.Sets}" FontSize="11" Margin="0" Keyboard="Numeric">
-                    <Editor.Behaviors>
-                        <y:NumericValidationBehavior />
-                    </Editor.Behaviors>
-                </Editor>
-                <Label Text="Reps" FontSize="11" FontAttributes="Bold"/>
-                <Editor Text="{Binding Exercise.Reps}" FontSize="11" Margin="0" Keyboard="Numeric">
-                    <Editor.Behaviors>
-                        <y:NumericValidationBehavior />
-                    </Editor.Behaviors>
-                </Editor>
-                <Label Text="Notes" FontSize="11" FontAttributes="Bold" />
-                <Editor Placeholder="Enter your notes" Text="{Binding Exercise.Notes}"
-                        HeightRequest="50" Keyboard="Default" FontSize="11" Margin="0" />
+                <StackLayout x:Name="dateVals" Padding="0" Margin="0">
+                    <Label Text="Date" FontSize="11" FontAttributes="Bold"  />
+                    <DatePicker FontSize="11" Format="d" Date="{Binding Exercise.ExerciseDate}"></DatePicker>                   
+                    <Label Text="Exercise" FontSize="11" FontAttributes="Bold"  />
+                    <Picker FontSize="11" Title="Select Exercise" x:Name="exPicker" />
+                </StackLayout>                
+                <StackLayout x:Name="strengthVals"  Padding="0" Margin="0">
+                    <Label Text="Weight" FontSize="11" FontAttributes="Bold"/>
+                    <Editor Text="{Binding Exercise.Weight}" FontSize="11" Margin="0" Keyboard="Numeric">
+                        <Editor.Behaviors>
+                            <y:NumericValidationBehavior />
+                        </Editor.Behaviors>
+                    </Editor>
+                    <Label Text="Sets" FontSize="11" FontAttributes="Bold"/>
+                    <Editor Text="{Binding Exercise.Sets}" FontSize="11" Margin="0" Keyboard="Numeric">
+                        <Editor.Behaviors>
+                            <y:NumericValidationBehavior />
+                        </Editor.Behaviors>
+                    </Editor>
+                    <Label Text="Reps" FontSize="11" FontAttributes="Bold"/>
+                    <Editor Text="{Binding Exercise.Reps}" FontSize="11" Margin="0" Keyboard="Numeric">
+                        <Editor.Behaviors>
+                            <y:NumericValidationBehavior />
+                        </Editor.Behaviors>
+                    </Editor>
+                </StackLayout>
+                <StackLayout x:Name="cardioVals" Padding="0" Margin="0">
+                    <Label Text="Hours" FontSize="11" FontAttributes="Bold" />
+                    <Editor Text="{Binding Exercise.Hours}" FontSize="11" Margin="0" Keyboard="Numeric">
+                        <Editor.Behaviors>
+                            <y:NumericValidationBehavior />
+                        </Editor.Behaviors>
+                    </Editor>
+                    <Label Text="Minutes" FontSize="11" FontAttributes="Bold" />
+                    <Editor Text="{Binding Exercise.Mins}" FontSize="11" Margin="0" Keyboard="Numeric">
+                        <Editor.Behaviors>
+                            <y:NumericValidationBehavior />
+                        </Editor.Behaviors>
+                    </Editor>
+                    <Label Text="Seconds" FontSize="11" FontAttributes="Bold" />
+                    <Editor Text="{Binding Exercise.Secs}" FontSize="11" Margin="0" Keyboard="Numeric">
+                        <Editor.Behaviors>
+                            <y:NumericValidationBehavior />
+                        </Editor.Behaviors>
+                    </Editor>
+                    <Label Text="Distance (miles)" FontSize="11" FontAttributes="Bold" />
+                    <Editor Text="{Binding Exercise.Distance}" FontSize="11" Margin="0" Keyboard="Numeric">
+                        <Editor.Behaviors>
+                            <y:NumericValidationBehavior />
+                        </Editor.Behaviors>
+                    </Editor>
+                </StackLayout>
+                <StackLayout Padding="0" Margin="0">
+                    <Label Text="Notes" FontSize="11" FontAttributes="Bold" />
+                    <Editor Placeholder="Enter your notes" Text="{Binding Exercise.Notes}"
+                            HeightRequest="50" Keyboard="Default" FontSize="11" Margin="0" />
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

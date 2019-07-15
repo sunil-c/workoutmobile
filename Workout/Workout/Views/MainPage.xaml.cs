@@ -24,6 +24,7 @@ namespace Workout.Views
 
         public async Task NavigateFromMenu(int id)
         {
+            //** you need to add to switch satement when adding new page
             if (!MenuPages.ContainsKey(id))
             {
                 switch (id)

@@ -19,12 +19,14 @@ namespace Workout.Views
     public partial class StrengthExerciseDetailPage : ContentPage
     {
         StrengthExerciseDetailViewModel viewModel;
+        private Dictionary<int, string> _exerciseList;
 
         //constructor receives a viewModel
         public StrengthExerciseDetailPage(StrengthExerciseDetailViewModel viewModel)
         {
             InitializeComponent();
             this.viewModel = viewModel;
+            _exerciseList = ExerciseList.GetExerciseList();
             //Exercise is now a reference to the Exercise object in viewModel
             BindingContext = this.viewModel;
         }
@@ -35,11 +37,30 @@ namespace Workout.Views
                 return;
             string selectedOption = (sender as Picker).SelectedItem.ToString();
 
+            //set up the UI
+            int key = _exerciseList.FirstOrDefault(x => x.Value == selectedOption).Key;
+            switch (key)
+            {
+                case 0:
+                    strengthVals.IsVisible = false;
+                    cardioVals.IsVisible = false;
+                    break;
+                case 90:
+                    strengthVals.IsVisible = false;
+                    cardioVals.IsVisible = true;                            
+                    break;
+                default:
+                    strengthVals.IsVisible = true;
+                    cardioVals.IsVisible = false;
+                    break;
+            }
+
             //only set new exercise name if changed
             if (viewModel.Exercise.Exercise != selectedOption)
             {
                 viewModel.Exercise.Exercise = selectedOption;
             }
+
         }
 
         async void Delete_Clicked(object sender, EventArgs e)
