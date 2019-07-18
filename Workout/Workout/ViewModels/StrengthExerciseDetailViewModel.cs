@@ -16,7 +16,7 @@ namespace Workout.ViewModels
         
         public StrengthExerciseDetailViewModel(String id = "")
         {
-            this.ListOfExercises = ExerciseList.GetExerciseList().Values.ToList();
+            this.ListOfExercises = ExerciseList.GetExerciseList(App.UseMockDataStore).Values.ToList();
             _ = SetUpExercise(id);
         }
 

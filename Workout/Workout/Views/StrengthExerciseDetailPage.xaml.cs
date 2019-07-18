@@ -26,7 +26,7 @@ namespace Workout.Views
         {
             InitializeComponent();
             this.viewModel = viewModel;
-            _exerciseList = ExerciseList.GetExerciseList();
+            _exerciseList = ExerciseList.GetExerciseList(App.UseMockDataStore);
             //Exercise is now a reference to the Exercise object in viewModel
             BindingContext = this.viewModel;
         }
@@ -44,14 +44,17 @@ namespace Workout.Views
                 case 0:
                     strengthVals.IsVisible = false;
                     cardioVals.IsVisible = false;
+                    viewModel.Exercise.IsCardio = false;
                     break;
                 case 90:
                     strengthVals.IsVisible = false;
-                    cardioVals.IsVisible = true;                            
+                    cardioVals.IsVisible = true;
+                    viewModel.Exercise.IsCardio = true;
                     break;
                 default:
                     strengthVals.IsVisible = true;
                     cardioVals.IsVisible = false;
+                    viewModel.Exercise.IsCardio = false;
                     break;
             }
 

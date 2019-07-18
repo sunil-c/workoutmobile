@@ -10,7 +10,7 @@
         <ToolbarItem Text="Delete" Clicked="Delete_Clicked" />
     </ContentPage.ToolbarItems>
 
-<ScrollView Padding="0" Margin="0">
+<ScrollView Padding="10,10,10,10" Margin="0">
 
         <StackLayout>
             <StackLayout>

@@ -15,6 +15,18 @@ using Workout.Services;
 
 namespace Workout.Views
 {
+    public class NegateBooleanConverter : IValueConverter
+    {
+        public object Convert (object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            return !(bool)value;
+        }
+        public object ConvertBack (object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            return !(bool)value;
+        }
+    }
+
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(true)]
@@ -25,7 +37,7 @@ namespace Workout.Views
         public StrengthExercisesPage()
         {
             InitializeComponent();
-            _exerciseList = ExerciseList.GetExerciseList();
+            _exerciseList = ExerciseList.GetExerciseList(App.UseMockDataStore);
             BindingContext = viewModel = new StrengthExerciseViewModel();
         }
 

@@ -9,7 +9,13 @@
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
         <ToolbarItem Text="Save" Clicked="Save_Clicked" />
     </ContentPage.ToolbarItems>
-    
+    <!--<ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Editor">
+                <Setter Property="BackgroundColor" Value="#E6EFF7" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>-->
     <ContentPage.Content>
         <ScrollView Margin="0" Padding="0">
             <StackLayout Padding="10">

@@ -48,5 +48,12 @@ namespace Workout.Services
             List<StrengthExercise> result = db1.Query<StrengthExercise>(sql);
             return await Task.FromResult(result.FindAll(i => i.ExerciseDate == dt));
         }
+
+        //public async Task<Dictionary<int, string>> GetExerciseListAsync(string id)
+        //{
+        //    string sql = "SELECT * FROM [ExerciseList]";
+
+        //    return await Task.FromResult(result);
+        //}
     }
 }

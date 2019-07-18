@@ -17,6 +17,7 @@ namespace Workout.Models
         public int Sets { get; set; }
 
         //used to store elapsed time for cardio
+        public bool IsCardio { get; set; }
         public int Hours { get; set; }
         public int Mins { get; set; }
         public int Secs { get; set; }
@@ -33,7 +34,7 @@ namespace Workout.Models
                 Exercise = this.Exercise, ExerciseDate = this.ExerciseDate,
                 Id = this.Id, Reps = this.Reps, Sets = this.Sets, Weight = this.Weight,
                 Note = this.Note, Hours = this.Hours, Mins = this.Mins, Secs = this.Secs,
-                Distance = this.Distance
+                Distance = this.Distance, IsCardio = this.IsCardio
             };
         }
 

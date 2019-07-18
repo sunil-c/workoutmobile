@@ -27,11 +27,17 @@ namespace Workout.Views
                  Weight = 0,
                  Sets = 0,
                  Reps = 0,
+                 Mins = 0,
+                 Hours = 0,
+                 Secs = 0,
+                 IsCardio = false,
+                 Distance = 0,
+                 Note = "",
                  ExerciseDate = DateTime.Today
             };
 
             //call static function to get exercises and bind them to pick list
-            _exerciseList = ExerciseList.GetExerciseList();
+            _exerciseList = ExerciseList.GetExerciseList(App.UseMockDataStore);
             ListOfExercises = _exerciseList.Values.ToList();
             exPicker.ItemsSource = ListOfExercises;
 
@@ -53,14 +59,17 @@ namespace Workout.Views
                         case 0:
                             strengthVals.IsVisible = false;
                             cardioVals.IsVisible = false;
+                            Exercise.IsCardio = false;
                             break;
                         case 90:
                             strengthVals.IsVisible = false;
-                            cardioVals.IsVisible = true;                            
+                            cardioVals.IsVisible = true;
+                            Exercise.IsCardio = true;
                             break;
                         default:
                             strengthVals.IsVisible = true;
                             cardioVals.IsVisible = false;
+                            Exercise.IsCardio = false;
                             break;
                     }
                 }
@@ -70,7 +79,7 @@ namespace Workout.Views
         }
 
         async void Save_Clicked(object sender, EventArgs e)
-        {
+        {            
             MessagingCenter.Send(this, "AddExercise", Exercise);
             await Navigation.PopModalAsync();
         }

@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Workout.Views.StrengthExercisesPage"
+             xmlns:local="clr-namespace:Workout.Views"
              Title="{Binding Title}"
              x:Name="BrowseExercisesPage"
              >
@@ -10,91 +11,70 @@
         <!--<ToolbarItem Icon="Refresh" Clicked="AddItem_Clicked" />-->
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
     </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <local:NegateBooleanConverter x:Key="inverter"/>
+    </ContentPage.Resources>
+    <ContentPage.Content>
 
-    <StackLayout Padding="10">
-        <!--<Label Text="Exercise Date" FontSize="Small" />-->
-        <DatePicker Format="d" x:Name="dtPicker" Date="{Binding SelectedDate}" FontSize="11" DateSelected="OnDateSelected"></DatePicker>
-        <ListView x:Name="ExercisesListView"
-                ItemsSource="{Binding Exercises}"
-                VerticalOptions="FillAndExpand"
-                HasUnevenRows="true"
-                RefreshCommand="{Binding LoadExercisesCommand}"
-                IsPullToRefreshEnabled="true"
-                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                CachingStrategy="RecycleElement"
-                ItemSelected="OnItemSelected">
-            <ListView.Header>
-                <Grid RowSpacing="5">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="35" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Label Text="Exercise" 
-                                    LineBreakMode="NoWrap" 
-                                    Style="{DynamicResource ListItemTextStyle}" 
-                                    FontSize="11" FontAttributes="Bold"
-                                    Grid.Row="0" Grid.Column="0" />
-                    <Label Text="Weight" 
-                                    LineBreakMode="NoWrap"
-                                    Style="{DynamicResource ListItemDetailTextStyle}"
-                                    FontSize="11" FontAttributes="Bold"
-                                   Grid.Row="0" Grid.Column="1" />
-                    <Label Text="Sets" 
-                                    LineBreakMode="NoWrap"
-                                    Style="{DynamicResource ListItemDetailTextStyle}"
-                                    FontSize="11" FontAttributes="Bold"
-                                    Grid.Row="0" Grid.Column="2"/>
-                    <Label Text="Reps" 
-                                    LineBreakMode="NoWrap"
-                                    Style="{DynamicResource ListItemDetailTextStyle}"
-                                    FontSize="11"  FontAttributes="Bold"
-                                    Grid.Row="0" Grid.Column="3"/>
-                </Grid>
-            </ListView.Header>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="30"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            
-                            <Label Text="{Binding Exercise}" 
-                                    LineBreakMode="NoWrap" 
-                                    Style="{DynamicResource ListItemTextStyle}" 
-                                    FontSize="11" 
-                                    Grid.Row="0" Grid.Column="0"/>
-                            <Label Text="{Binding Weight}" 
-                                    LineBreakMode="NoWrap"
-                                    Style="{DynamicResource ListItemDetailTextStyle}"
-                                    FontSize="11" 
-                                   Grid.Row="0" Grid.Column="1" />
-                            <Label Text="{Binding Sets}" 
-                                    LineBreakMode="NoWrap"
-                                    Style="{DynamicResource ListItemDetailTextStyle}"
-                                    FontSize="11" 
-                                    Grid.Row="0" Grid.Column="2"/>
-                            <Label Text="{Binding Reps}" 
-                                    LineBreakMode="NoWrap"
-                                    Style="{DynamicResource ListItemDetailTextStyle}"
-                                    FontSize="11" 
-                                    Grid.Row="0" Grid.Column="3"/>
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
+        <StackLayout Padding="10">
+            <DatePicker Format="d" x:Name="dtPicker" Date="{Binding SelectedDate}" FontSize="11" DateSelected="OnDateSelected"></DatePicker>
+            <ListView x:Name="ExercisesListView"
+                    ItemsSource="{Binding Exercises}"
+                    VerticalOptions="FillAndExpand"
+                    HasUnevenRows="true"
+                    RefreshCommand="{Binding LoadExercisesCommand}"
+                    IsPullToRefreshEnabled="true"
+                    IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                    CachingStrategy="RecycleElement"
+                    ItemSelected="OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                        
+                          <Frame Padding="0,0,0,3">
+                            <Frame.Content>
+                              <Frame Padding="10,5,10,5" OutlineColor="Gray" BackgroundColor="#FFFAFF" Opacity="40" HasShadow="True">
+                                <Frame.Content>
+                                  <StackLayout Padding="2,0,0,0"  Orientation="Vertical" HorizontalOptions="Start" Spacing="3">  
+                                    <Label Text="{Binding Exercise, StringFormat='Exercise: {0:N}'}"
+                                           
+                                           FontSize="9" TextColor="#292B3F"/>
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="Start" Spacing="3" x:Name="strenghtVals" IsVisible="{Binding IsCardio, Converter={StaticResource inverter}}">
+                                         <Label Text="{Binding Sets, StringFormat='Sets: {0:N}'}"
+                                               FontSize="9" TextColor="#292B3F"/>
+                                        <Label Text="{Binding Weight, StringFormat='Weight: {0:N}'}"
+                                               FontSize="9" TextColor="#292B3F"/>
+                                        <Label Text="{Binding Reps, StringFormat='Reps: {0:N}'}"
+                                               FontSize="9" TextColor="#292B3F"/>                                       
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="Start" Spacing="3" x:Name="cardioVals" IsVisible="{Binding IsCardio}">
+                                         <Label Text="{Binding Hours, StringFormat='Hours: {0:N}'}"
+                                               FontSize="9" TextColor="#292B3F"/>
+                                        <Label Text="{Binding Mins, StringFormat='Mins: {0:N}'}"
+                                               FontSize="9" TextColor="#292B3F"/>
+                                        <Label Text="{Binding Secs, StringFormat='Secs: {0:N}'}"
+                                               FontSize="9" TextColor="#292B3F"/>
+                                        <Label Text="{Binding Distance, StringFormat='Distance: {0:N}'}"
+                                               FontSize="9" TextColor="#292B3F"/>     
+                                    </StackLayout>
+                                      
+                                    <Label Text="{Binding Note, StringFormat='Notes: {0:N}'}"
+                                           FontSize="9" TextColor="#292B3F"/>
+                                  </StackLayout>
+
+                                </Frame.Content>
+
+                              </Frame>
+                            </Frame.Content>
+
+                          </Frame>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>        
+    </ContentPage.Content>
+
     
 </ContentPage>
