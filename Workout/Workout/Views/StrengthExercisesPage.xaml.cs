@@ -33,11 +33,10 @@ namespace Workout.Views
     public partial class StrengthExercisesPage : ContentPage
     {
         StrengthExerciseViewModel viewModel;
-        Dictionary<int, string> _exerciseList;
+
         public StrengthExercisesPage()
         {
             InitializeComponent();
-            _exerciseList = ExerciseList.GetExerciseList(App.UseMockDataStore);
             BindingContext = viewModel = new StrengthExerciseViewModel();
         }
 

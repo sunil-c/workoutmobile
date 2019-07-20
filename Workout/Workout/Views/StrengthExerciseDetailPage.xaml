@@ -16,7 +16,7 @@
             <StackLayout>
                 <Label Text="Exercise" FontSize="11" FontAttributes="Bold"  />
                 <Picker FontSize="11" Title="Change Exercise To" x:Name="exPicker"  
-                    ItemsSource="{Binding ListOfExercises}" SelectedIndexChanged="PickerSelectedIndexChanged" />                 
+                    SelectedIndexChanged="PickerSelectedIndexChanged" />                 
             </StackLayout>
             
             <StackLayout x:Name="cardioVals" Padding="0" Margin="0">

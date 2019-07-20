@@ -19,7 +19,7 @@ namespace Workout.Views
     public partial class StrengthExerciseDetailPage : ContentPage
     {
         StrengthExerciseDetailViewModel viewModel;
-        private Dictionary<int, string> _exerciseList;
+        List<ExerciseListItem> _exerciseList;
 
         //constructor receives a viewModel
         public StrengthExerciseDetailPage(StrengthExerciseDetailViewModel viewModel)
@@ -27,6 +27,7 @@ namespace Workout.Views
             InitializeComponent();
             this.viewModel = viewModel;
             _exerciseList = ExerciseList.GetExerciseList(App.UseMockDataStore);
+            exPicker.ItemsSource = (from e in _exerciseList where e.Id >= 0 select e.Value).ToList();
             //Exercise is now a reference to the Exercise object in viewModel
             BindingContext = this.viewModel;
         }
@@ -38,7 +39,7 @@ namespace Workout.Views
             string selectedOption = (sender as Picker).SelectedItem.ToString();
 
             //set up the UI
-            int key = _exerciseList.FirstOrDefault(x => x.Value == selectedOption).Key;
+            int key = _exerciseList.FirstOrDefault(x => x.Value == selectedOption).Id;
             switch (key)
             {
                 case 0:

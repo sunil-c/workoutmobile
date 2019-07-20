@@ -3,6 +3,14 @@ using SQLite;
 
 namespace Workout.Models
 {
+    [Table("ExerciseList")]
+    public class ExerciseListItem
+    {
+        [PrimaryKey]
+        public int Id { get; set; }
+        public string Value { get; set; }
+    }
+
     [Table("StrengthExercise")]
     public class StrengthExercise: ICloneable
     {

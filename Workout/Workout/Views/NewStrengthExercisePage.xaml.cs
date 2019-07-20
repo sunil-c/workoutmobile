@@ -14,8 +14,8 @@ namespace Workout.Views
     public partial class NewStrengthExercisePage : ContentPage
     {
         public StrengthExercise Exercise { get; set; }
-        public List<string> ListOfExercises;
-        private Dictionary<int, string> _exerciseList;
+        private List<ExerciseListItem>  _exerciseList;
+
         public NewStrengthExercisePage()
         {
             InitializeComponent();
@@ -38,8 +38,7 @@ namespace Workout.Views
 
             //call static function to get exercises and bind them to pick list
             _exerciseList = ExerciseList.GetExerciseList(App.UseMockDataStore);
-            ListOfExercises = _exerciseList.Values.ToList();
-            exPicker.ItemsSource = ListOfExercises;
+            exPicker.ItemsSource = (from e in _exerciseList where e.Id >= 0 select e.Value).ToList();
 
             cardioVals.IsVisible = false;
 
@@ -53,7 +52,7 @@ namespace Workout.Views
                 else
                 {
                     Exercise.Exercise = exPicker.Items[exPicker.SelectedIndex];
-                    int key = _exerciseList.FirstOrDefault(x => x.Value == Exercise.Exercise).Key;
+                    int key = _exerciseList.FirstOrDefault(x => x.Value == Exercise.Exercise).Id;
                     switch (key)
                     {
                         case 0:
