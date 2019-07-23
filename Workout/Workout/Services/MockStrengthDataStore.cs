@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SQLite;
 using Workout.Models;
 
 namespace Workout.Services
@@ -68,6 +69,11 @@ namespace Workout.Services
         {
             //return all for a date
             return await Task.FromResult(exercises.FindAll(i => i.ExerciseDate == dt));
+        }
+
+        public SQLiteConnection GetConnection()
+        {
+            throw new NotImplementedException();
         }
     }
 }

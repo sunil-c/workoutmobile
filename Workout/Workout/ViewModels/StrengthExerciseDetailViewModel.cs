@@ -13,10 +13,11 @@ namespace Workout.ViewModels
 
         public StrengthExercise Exercise { get; set; }
         public List<ExerciseListItem> ListOfExercises { get; set; }
-        
+        private ExerciseList EL = new ExerciseList();
+
         public StrengthExerciseDetailViewModel(String id = "")
         {
-            this.ListOfExercises = ExerciseList.GetExerciseList(App.UseMockDataStore);
+            this.ListOfExercises = EL.GetExerciseList(App.UseMockDataStore);
             _ = SetUpExercise(id);
         }
 

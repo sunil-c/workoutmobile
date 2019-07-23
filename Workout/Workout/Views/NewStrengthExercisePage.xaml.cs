@@ -15,6 +15,7 @@ namespace Workout.Views
     {
         public StrengthExercise Exercise { get; set; }
         private List<ExerciseListItem>  _exerciseList;
+        private ExerciseList EL = new ExerciseList();
 
         public NewStrengthExercisePage()
         {
@@ -37,7 +38,7 @@ namespace Workout.Views
             };
 
             //call static function to get exercises and bind them to pick list
-            _exerciseList = ExerciseList.GetExerciseList(App.UseMockDataStore);
+            _exerciseList = EL.GetExerciseList(App.UseMockDataStore);
             exPicker.ItemsSource = (from e in _exerciseList where e.Id >= 0 select e.Value).ToList();
 
             cardioVals.IsVisible = false;
