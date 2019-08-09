@@ -14,7 +14,7 @@ namespace Workout
         public static string AzureBackendUrl = "http://localhost:5000";
         public static bool UseMockDataStore = false;
 
-        private static string databaseName = "ExerciseSQLite.db3";
+        public static string DatabaseName = "ExerciseSQLite.db3";
         //create a read only global database variable
         private static IStrengthDataStore<StrengthExercise> _database;
         public static IStrengthDataStore<StrengthExercise> Database
@@ -31,7 +31,7 @@ namespace Workout
                     else
                     {
                         _database = new ExerciseDatabase(
-                            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), databaseName));
+                            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), DatabaseName));
                     }
 
                 }

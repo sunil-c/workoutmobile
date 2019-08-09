@@ -24,6 +24,7 @@ namespace Workout.Views
                 //** You need to add a new menu item when you add a page
                 new HomeMenuItem {Id = MenuItemType.Exercises, Title="Exercises" },
                 new HomeMenuItem {Id = MenuItemType.Stopwatch, Title="Stop Watch" },
+                new HomeMenuItem {Id = MenuItemType.ExerciseList, Title="Exercise List" },
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" }
             };
 

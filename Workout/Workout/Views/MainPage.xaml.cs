@@ -24,7 +24,11 @@ namespace Workout.Views
 
         public async Task NavigateFromMenu(int id)
         {
-            //** you need to add to switch satement when adding new page
+            //        ******** To add a new menu item ********           //
+            // 1. add a new MenuItemType                                 //
+            // 2. Modify Menu Page and add a new menu item type to list  //
+            // 3. Modify the case statement below                        //
+
             if (!MenuPages.ContainsKey(id))
             {
                 switch (id)
@@ -34,6 +38,9 @@ namespace Workout.Views
                         break;
                     case (int)MenuItemType.Stopwatch:
                         MenuPages.Add(id, new NavigationPage(new StopWatchPage()));
+                        break;
+                    case (int)MenuItemType.ExerciseList:
+                        MenuPages.Add(id, new NavigationPage(new ExerciseListPage()));
                         break;
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
