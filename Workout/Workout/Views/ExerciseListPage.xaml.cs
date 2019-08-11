@@ -17,7 +17,7 @@ namespace Workout.Views
         ExerciseListViewModel viewModel;
 
         //these two are used to track the currently edited record
-        private string action;
+        private string action = "UPDATE";
         private int selectedId;
 
         public ExerciseListPage()
@@ -25,11 +25,6 @@ namespace Workout.Views
             InitializeComponent();
             BindingContext = viewModel = new ExerciseListViewModel();
         }
-
-        //public void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
-        //{
-        //    selectedId = (e.SelectedItem as Workout.Models.ExerciseListItem).Id;
-        //}
 
         async void Delete_Clicked(object sender, EventArgs e)
         {
@@ -39,27 +34,27 @@ namespace Workout.Views
             selectedId = -1;
         }
 
-        //async void Edit_Clicked(object sender, EventArgs e)
-        //{
-        //    /*
-        //     * This event exists to capture the item id for the row being edited
-        //     * The loop through the controls has a dependency on the controls being in a grid
-        //     */
+        async void Edit_Clicked(object sender, EventArgs e)
+        {
+            /*
+             * This event exists to capture the item id for the row being edited
+             * The loop through the controls has a dependency on the controls being in a grid
+             */
 
-        //     //we're binding the record id to the command parameter prop
-        //    selectedId = int.Parse(((sender as Button).CommandParameter).ToString());
-        //    action = action != "ADD" ? "UPDATE" : action;
+            //we're binding the record id to the command parameter prop
+            selectedId = int.Parse(((sender as Button).CommandParameter).ToString());
+            //action = action != "ADD" ? "UPDATE" : action;
 
-        //    //loop the controls in the grid and turn the read-only property to false
-        //    foreach (View v in (((sender as Button).Parent as Grid).Children))
-        //    {
-        //        if (v.GetType() == typeof(Editor))
-        //        {
-        //            (v as Editor).IsReadOnly = false;
-        //            (v as Editor).Focus();
-        //        }
-        //    }
-        //}
+            //loop the controls in the grid and turn the read-only property to false
+            foreach (View v in (((sender as Button).Parent as Grid).Children))
+            {
+                if (v.GetType() == typeof(Editor))
+                {
+                    (v as Editor).IsReadOnly = false;
+                    (v as Editor).Focus();
+                }
+            }
+        }
 
         async void Save_Clicked(object sender, EventArgs e)
         {
@@ -67,18 +62,12 @@ namespace Workout.Views
             //use the action flag to send the right message
             switch (action)
             {
-                case "ADD": 
-                    //add a dummy record to the database and let the user edit it
-                    MessagingCenter.Send(this, "AddExercise", viewModel.ListOfExercises.FirstOrDefault(s => s.Id == -1));
-                    action = "UPDATE";
-                    selectedId = -1;
-                    viewModel.LoadExercisesCommand.Execute(null);
-                    break;
                 case "UPDATE":
-                    MessagingCenter.Send(this, "UpdateExercise", viewModel.ListOfExercises.FirstOrDefault(s => s.Id == selectedId));
+                    if (selectedId > -1)
+                        MessagingCenter.Send(this, "UpdateExercise", viewModel.ListOfExercises.FirstOrDefault(s => s.Id == selectedId));
                     action = "UPDATE";
                     selectedId = -1;
-                    viewModel.LoadExercisesCommand.Execute(null);
+                    //viewModel.LoadExercisesCommand.Execute(null);
                     break;
                 default:
                     action = "UPDATE";
@@ -87,47 +76,35 @@ namespace Workout.Views
             }
         }
 
-        public void OnEditorFocused(object sender, FocusEventArgs e)
+        public void OnEditorUnfocused(object sender, FocusEventArgs e)
         {
-            /*
-             * This event exists to capture the item id for the row being edited
-             * The loop through the controls has a dependency on the controls being in a grid
-             */
-
-            action = action != "ADD" ? "UPDATE" : action;
-            
-            //loop the controls in the grid and turn the read-only property to false
-            foreach (View v in (((sender as Editor).Parent as Grid).Children))
-            {
-                if (v.GetType() == typeof(Label))
-                {
-                    selectedId = int.Parse((v as Label).Text);
-                }
-            }
+            (sender as Editor).IsReadOnly = true;
         }
 
         async void Add_Clicked(object sender, EventArgs e)
         {
-            //action = "ADD";
-            //viewModel.ListOfExercises.Insert(0, new Models.ExerciseListItem{Id=-1,Value="Exercise Name"});
-
             EnteredName.Text = string.Empty;
-
+            //turn on overlay
             overlay.IsVisible = true;
-
             EnteredName.Focus();
 
         }
 
         void OnOKButtonClicked(object sender, EventArgs args)
         {
+            //turn off overlay
             overlay.IsVisible = false;
 
-            DisplayAlert("Result", string.Format("You entered {0}", EnteredName.Text), "OK");
+            if (EnteredName.Text.Length > 0)
+            {
+                MessagingCenter.Send(this, "AddExercise", new Models.ExerciseListItem{Id=-1, Value=EnteredName.Text});
+                viewModel.LoadExercisesCommand.Execute(null);
+            }
         }
 
         void OnCancelButtonClicked(object sender, EventArgs args)
         {
+            //turn off overlay
             overlay.IsVisible = false;
         }
     }

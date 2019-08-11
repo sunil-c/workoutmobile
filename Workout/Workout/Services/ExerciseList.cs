@@ -131,8 +131,8 @@ namespace Workout.Services
                     exercises.Add(new ExerciseListItem{Id=64, Value="Front Raise" });
 
                     exercises.Add(new ExerciseListItem{Id=70, Value="Abs" });
-                    exercises.Add(new ExerciseListItem{Id=0, Value="Other" });
                     exercises.Add(new ExerciseListItem{Id=90, Value="Cardio" });
+                    exercises.Add(new ExerciseListItem{Id=100, Value="Other" });
                     //exercises.Add(91, "HIIT");
 
                     //insert into database
