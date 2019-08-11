@@ -11,6 +11,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\abs_action_athlete_2294363.jpg" />
+    <None Remove="Assets\active_adult_athlete_348487.jpg" />
+    <None Remove="Assets\active_adult_athlete_703012.jpg" />
+    <None Remove="Assets\adult_athlete_barbell_1552106.jpg" />
+    <None Remove="Assets\athlete_barbell_bodybuilder_1092883.jpg" />
+    <None Remove="Assets\athlete_barbell_body_1552249.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\abs_action_athlete_2294363.jpg" />
+    <EmbeddedResource Include="Assets\active_adult_athlete_348487.jpg" />
+    <EmbeddedResource Include="Assets\active_adult_athlete_703012.jpg" />
+    <EmbeddedResource Include="Assets\adult_athlete_barbell_1552106.jpg" />
+    <EmbeddedResource Include="Assets\athlete_barbell_bodybuilder_1092883.jpg" />
+    <EmbeddedResource Include="Assets\athlete_barbell_body_1552249.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="sqlite-net-pcl" Version="1.5.231" />
     <PackageReference Include="Xamarin.Forms" Version="4.1.0.555618" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
