@@ -1,4 +1,4 @@
-# Workout Diary
+# Xrcsr - Workout Diary
 
 ## Overview
 TLDR; your workout diary should be easy to use
