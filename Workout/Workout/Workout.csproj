@@ -3,6 +3,16 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceAssemblyReference>true</ProduceAssemblyReference>
+    <PackageId>Xrcsr</PackageId>
+    <Authors>Sunil Ciszewski</Authors>
+    <Company />
+    <Product>Xrcsr</Product>
+    <Description>A workout journal
+</Description>
+    <Copyright>2019</Copyright>
+    <RepositoryUrl>https://github.com/sunil-c/workoutmobile</RepositoryUrl>
+    <RepositoryType>Github</RepositoryType>
+    <AssemblyName>Workout</AssemblyName>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

@@ -148,4 +148,7 @@
       <Name>Workout</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\adult_athlete_barbell_1552106.jpg" />
+  </ItemGroup>
 </Project>
