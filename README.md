@@ -16,7 +16,10 @@ Xrcsr's primary purpose is to get involved with Xamarin and mobile apps. The cod
 ## Tech
 This Xamarin app is based on the standard MasterDetail Page and a vanilla MVVM model. It enables a user to record, store and retrieve exercises performed on a specific date. The app stores info locally in a SQLlite database. Your data is not shared by default. Future enhancements will include creating a cloud storage location for backup.
 
-![alt text](https://github.com/sunil-c/workoutmobile/blob/master/about_page.jpg "About Page")
+![alt text](https://github.com/sunil-c/workoutmobile/blob/master/about_page.png "About Page")
 
 ## Dev environment
 VS 2019. Xamarin and Xamarin Forms 4.x. Sqlite.
+
+## License
+This project is licensed under the terms of the MIT license.
