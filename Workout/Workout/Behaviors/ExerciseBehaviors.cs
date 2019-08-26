@@ -2,6 +2,9 @@
 using System.Text.RegularExpressions;
 using Xamarin.Forms;
 
+/// <summary>
+/// Behaviors are used in XAML to provide default features such as setting a text box to validate hone number.
+/// </summary>
 namespace Workout.Behaviors
 {
     public class NumericValidationBehavior : Behavior<Editor>

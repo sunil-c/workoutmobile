@@ -4,7 +4,12 @@ using System.Text;
 
 namespace Workout.Models
 {
-    //* modify the following: MenuItemType enum , menupage.xaml.cs, mainpage.xaml.cs
+    /* TO ADD A MENU ITEM TO THE APP
+     * modify the following files: 
+     * MenuItemType enum (below)
+     * menupage.xaml.cs
+     * mainpage.xaml.cs 
+     */
     public enum MenuItemType
     {
         Exercises,

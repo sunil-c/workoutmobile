@@ -20,14 +20,13 @@ namespace Workout.Views
     {
         StrengthExerciseDetailViewModel viewModel;
         List<ExerciseListItem> _exerciseList;
-        private ExerciseList EL = new ExerciseList();
 
         //constructor receives a viewModel
         public StrengthExerciseDetailPage(StrengthExerciseDetailViewModel viewModel)
         {
             InitializeComponent();
             this.viewModel = viewModel;
-            _exerciseList = EL.GetExerciseList(App.UseMockDataStore);
+            _exerciseList = App.Database.GetExerciseList().ToList<ExerciseListItem>();
             exPicker.ItemsSource = (from e in _exerciseList where e.Id >= 0 select e.Value).ToList();
             //Exercise is now a reference to the Exercise object in viewModel
             BindingContext = this.viewModel;

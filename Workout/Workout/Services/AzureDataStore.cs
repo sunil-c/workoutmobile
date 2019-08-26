@@ -9,6 +9,8 @@ using Workout.Models;
 
 namespace Workout.Services
 {
+    //**** NOT USED ****//
+
     //public class AzureDataStore : IDataStore<Item>
     //{
     //    HttpClient client;

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Workout.Models;
-using Workout.Services;
 
 namespace Workout.ViewModels
 {
@@ -13,11 +12,10 @@ namespace Workout.ViewModels
 
         public StrengthExercise Exercise { get; set; }
         public List<ExerciseListItem> ListOfExercises { get; set; }
-        private ExerciseList EL = new ExerciseList();
 
         public StrengthExerciseDetailViewModel(String id = "")
         {
-            this.ListOfExercises = EL.GetExerciseList(App.UseMockDataStore);
+            this.ListOfExercises = App.Database.GetExerciseList().ToList();
             _ = SetUpExercise(id);
         }
 

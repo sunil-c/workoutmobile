@@ -1,6 +1,7 @@
 ﻿using System;
 using SQLite;
 
+//the [PrimaryKey] attribute is for SQLite
 namespace Workout.Models
 {
     [Table("ExerciseList")]

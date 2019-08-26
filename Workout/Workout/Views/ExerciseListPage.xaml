@@ -48,7 +48,7 @@
                 
                 </StackLayout>     
 
-        <!-- Overlay -->
+        <!-- About Box Overlay -->
         <ContentView x:Name="overlay"
                      AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
                      AbsoluteLayout.LayoutFlags="All"
@@ -63,7 +63,7 @@
                        VerticalOptions="Start" 
                        Margin="5,20,5,0">
 
-                <Label BackgroundColor="#292B3F" FontSize="18" TextColor="White" HorizontalTextAlignment="Center" HorizontalOptions="Fill" Text="Add Exercise" />
+                <Label BackgroundColor="#061E30" FontSize="18" TextColor="White" HorizontalTextAlignment="Center" HorizontalOptions="Fill" Text="Add Exercise" />
 
                 <Entry x:Name="EnteredName" 
                        Placeholder="Exercise Name" 
