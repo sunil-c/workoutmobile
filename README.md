@@ -18,6 +18,7 @@ This Xamarin app is based on the standard MasterDetail Page and a vanilla MVVM m
 
 ![alt text](https://github.com/sunil-c/workoutmobile/blob/master/about_page.png "About Page")
 
+
 ## Dev environment
 VS 2019. Xamarin and Xamarin Forms 4.x. Sqlite.
 
