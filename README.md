@@ -20,3 +20,6 @@ This Xamarin app is based on the standard MasterDetail Page and a vanilla MVVM m
 
 ## Dev environment
 VS 2019. Xamarin and Xamarin Forms 4.x. Sqlite.
+
+## License
+This project is licensed under the terms of the MIT license.
